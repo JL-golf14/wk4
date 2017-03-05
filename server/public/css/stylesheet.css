@@ -16,16 +16,10 @@ h1{
 td{
   padding: 15px;
   font-size: 18px;
-
 }
 .complete{
-
   background-color: rgba(0,255,0,0.4);
-
-opacity: inherit;
-
 }
 .incomplete{
   background-color: rgba(255,0,0,0.4);
-
 }

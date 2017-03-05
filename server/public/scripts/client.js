@@ -19,10 +19,10 @@ $(document).ready(function(){
             $newTodo.append('<td>'+ '</td>');
             $newTodo.toggleClass('complete');
           } else
-           {
-             $newTodo.toggleClass('incomplete');
-             $newTodo.append('<td><button class="taskCompleteButton">Mark as Done</button></td>');
-           }
+          {
+            $newTodo.toggleClass('incomplete');
+            $newTodo.append('<td><button class="taskCompleteButton">Mark as Done</button></td>');
+          }
           $newTodo.append('<td><button class="deleteButton">Delete</button></td>');
 
           $('#taskListTag').append($newTodo);
@@ -32,7 +32,6 @@ $(document).ready(function(){
   }
 
   $('#newTodoButton').on('click', function(){
-    console.log("new todo button click");
     event.preventDefault();
     var newTaskFromDom = $("#taskSubmission").val();
     var newTaskCompletedVar = 'incomplete';
@@ -46,7 +45,6 @@ $(document).ready(function(){
       url: '/todo/new',
       data: newTodoObject,
       success: function(response){
-        console.log(response);
         getTodoData();
         $('#newTodoButton > input').val('');
       }
@@ -54,24 +52,24 @@ $(document).ready(function(){
   });  //closes new todo
 
   $('#taskListTag').on('click', '.deleteButton', function(){
+    var r = confirm("Are you sure you wanna delete???");
+    if (r ==true) {
+
+
     var idTodoDelete = $(this).parent().parent().data().id;
-    console.log('The id to delete is: ', idTodoDelete);
     $.ajax({
       type: 'DELETE',
       url: '/todo/delete/' + idTodoDelete,
       success: function(response) {
-        console.log(response);
         getTodoData();
       }
     })
-  });  //closes delete button
-
+}else{
+  txt = "didn't think so"
+}
+}); //closes delete button
   $('#taskListTag').on('click','.taskCompleteButton', function(){
     var idTodoComplete = $(this).parent().parent().data().id;
-    console.log("ID TODO COMPLETE LOG",idTodoComplete);
-    //works
-    var taskTodoSave = $(this).parent().parent().parent().find('.incomplete').val();
-
     var todoObjectToSave = {
       id : idTodoComplete,
       completed: "complete"
@@ -82,7 +80,6 @@ $(document).ready(function(){
       url: '/todo/' + idTodoComplete,
       data: todoObjectToSave,
       success: function(response) {
-        console.log(response);
         getTodoData();
       }
     })  //ajax for save
