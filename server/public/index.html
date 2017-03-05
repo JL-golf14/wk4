@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>task assignment</title>
+  <script src="vendors/jquery.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="/css/stylesheet.css">
+</head>
+<body>
+  <h1>To Do List</h1>
+  <form id="newTaskForm">
+    <input id="taskSubmission" type="text" placeholder="Write New Task Here...">
+    <button type="click" id="newTodoButton">Add a new Task</button>
+  </form>
+  <table>
+    <thead>
+      <h2>List of Tasks</h2>
+      <tr>
+        <th>Task</th>
+        <th>Completed?</th>
+        <th>Date Created</th>
+        <th>Mark as Done</th>
+        <th>Delete Task</th>
+      </tr>
+    </thead>
+    <tbody id="taskListTag">
+    </tbody>
+  </table>
+</body>
+</html>

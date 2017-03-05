@@ -1,0 +1,31 @@
+#taskSubmission {
+  font-size: 18px;
+  width: 490px;
+  height: 27px;
+  border: 6px solid  gray;
+  padding: 5px;
+}
+th{
+  font-size: 24px;
+  padding: 11px;
+}
+h1{
+  font-size: 55px;
+  padding: -35px;
+}
+td{
+  padding: 15px;
+  font-size: 18px;
+
+}
+.complete{
+
+  background-color: rgba(0,255,0,0.4);
+
+opacity: inherit;
+
+}
+.incomplete{
+  background-color: rgba(255,0,0,0.4);
+
+}
